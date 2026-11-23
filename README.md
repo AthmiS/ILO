@@ -27,14 +27,12 @@ ILO is a multi-business appointment booking and management platform. Local busin
 1. Install Python 3.10 or newer.
 2. Open this folder in VS Code.
 3. Create and activate a virtual environment:
-
-   ```powershell
+```powershell
    python -m venv .venv
    .venv\\Scripts\\activate
    ```
 
 4. Install dependencies:
-
    ```powershell
    pip install -r requirements.txt
    ```
