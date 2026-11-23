@@ -94,7 +94,7 @@ SCHEDLY aims to solve these problems through a centralized booking platform wher
 
 ---
 
-## How SCHEDLY Works
+## How ILO Works
 
 **For Business Owners**
 
