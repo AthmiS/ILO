@@ -1,242 +1,86 @@
-# SCHEDLY
-### Smart Scheduling. Seamless Booking.
+# ILO — Interactive Local Organizer
+### Your Business. Your Schedule. Your Bookings.
 
-**SCHEDLY** is a smart, multi-business appointment booking platform that simplifies how local businesses manage appointments and how customers book services.
+ILO is a multi-business appointment booking and management platform. Local businesses can create a public booking page, manage services and working hours, and receive appointments. Customers can book available time slots without creating an account.
 
-It provides every registered business with its own public booking link, allowing customers to select services, choose available time slots and confirm appointments without repetitive phone calls or WhatsApp messages.
+## Features
+- Multi-business owner accounts and isolated business data
+- Unique public booking link for each business
+- Service management with price, duration and buffer time
+- Weekly working hours, breaks and unavailable dates
+- Automatic availability calculation
+- Server-side booking revalidation and SQLite write transaction
+- Customer booking confirmation and secure management link
+- Booking cancellation and rescheduling
+- Owner dashboard, calendar and appointment status management
+- No-show tracking and simple reports
+- Responsive interface with custom illustrations and animations
 
----
+## Technology
+- HTML5, CSS3, Vanilla JavaScript
+- Python, Flask, Jinja templates
+- SQLite
+- Werkzeug password hashing
+- Session-bound CSRF tokens on form submissions
 
-## About the Project
+## Setup (Windows)
+1. Install Python 3.10 or newer.
+2. Open this folder in VS Code.
+3. Create and activate a virtual environment:
 
-Salons, clinics, tutors and consultants often manage appointments manually through phone calls and messaging applications. This can result in double bookings, forgotten appointments, missed customers and unnecessary communication.
+   ```powershell
+   python -m venv .venv
+   .venv\\Scripts\\activate
+   ```
 
-SCHEDLY aims to solve these problems through a centralized booking platform where multiple businesses can independently manage their services, schedules and customer appointments.
+4. Install dependencies:
 
-## Key Features
+   ```powershell
+   pip install -r requirements.txt
+   ```
 
-### 1. Multi-Business Support
-- Multiple businesses can register on the platform.
-- Each business gets its own profile and public booking link.
-- Business information and appointments remain separate.
+5. Copy `.env.example` to `.env` and set a unique `SECRET_KEY`.
+6. Start the application:
 
-### 2. Business Management
-- Create and manage business profiles.
-- Add, edit and delete services.
-- Set service names, prices and durations.
-- Configure weekly working hours.
-- Set holidays and days off.
+   ```powershell
+   python app.py
+   ```
 
-### 3. Public Booking System
-- Unique booking page for every business.
-- Customers can select available services.
-- Date and time selection.
-- Customer name and phone number collection.
-- Simple appointment confirmation.
+7. Visit `http://127.0.0.1:5000`.
 
-### 4. Smart Slot Generation
-- Automatically calculates available appointment slots.
-- Considers working hours and service duration.
-- Accounts for existing bookings and buffer time.
-- Prevents overlapping appointments.
+The SQLite database is initialized automatically in `instance/ilo.db`.
 
-### 5. Owner Dashboard
-- View daily appointments.
-- Manage customer details.
-- View upcoming bookings.
-- Access daily and weekly calendar views.
-- Track completed and missed appointments.
-
-### 6. Booking Management
-- Unique booking management links.
-- Appointment cancellation.
-- Appointment rescheduling.
-- Automatically releases cancelled time slots.
-
-### 7. No-Show Tracking
-- Business owners can mark missed appointments.
-- View simple no-show reports.
-
-### 8. Booking Confirmation
-- Displays booking details after successful reservation.
-- Provides a unique link to manage the appointment.
-- Supports email confirmation or a WhatsApp click-to-chat link.
-
----
-
-## Technology Stack
-
-| Technology | Purpose |
+## Main routes
+| Route | Purpose |
 |---|---|
-| HTML5 | Website structure |
-| CSS3 | Styling and responsive layouts |
-| JavaScript | Frontend interactions |
-| Python | Backend programming |
-| Flask | Web framework |
-| SQLite | Database management |
-| Git | Version control |
-| GitHub | Source code hosting |
+| `/` | Landing page |
+| `/register` | Owner registration |
+| `/login` | Owner login |
+| `/setup` | Business onboarding |
+| `/dashboard` | Owner dashboard |
+| `/management` | Services, schedule and booking settings |
+| `/book/<slug>` | Public booking page |
+| `/manage/<token>` | Customer booking management |
+| `/calendar` | Appointment list/calendar |
+| `/profile` | Business profile editor |
+
+## Tests
+Run:
+
+```powershell
+pytest -q
+```
+
+## Important notes
+- The first version supports one business profile per owner account.
+- Email sending is not configured by default; on-screen confirmation and a secure management link work without an email provider.
+- WhatsApp contact can be handled using the business phone number shown on the public booking page.
+- Configure a strong secret key before deployment.
+- For production deployment, use HTTPS, secure cookie settings, a production WSGI server, backups and operational monitoring.
+- Booking times use the server's local timezone in this starter implementation. Configure the deployment timezone consistently with the businesses being served.
+
+## Hackathon demonstration
+Open the customer booking page in one browser window and the owner dashboard in another. Create a booking, verify it appears in the dashboard, then cancel it through the secure management link and confirm the time becomes available again.
 
 ---
 
-## Application Pages
-
-| Page | Description |
-|---|---|
-| Home | Platform introduction and features |
-| Login & Registration | Business owner authentication |
-| Business Setup | Business profile and service configuration |
-| Public Booking | Customer appointment booking |
-| Booking Confirmation | Successful booking details |
-| Owner Dashboard | Appointment overview and calendar |
-| Business Management | Manage services and schedules |
-| Manage Booking | Cancel or reschedule appointments |
-
----
-
-## How SCHEDLY Works
-
-**For Business Owners**
-
-1. Register on SCHEDLY.
-2. Create a business profile.
-3. Add services with prices and durations.
-4. Configure working hours and days off.
-5. Receive a unique public booking link.
-6. Share the link with customers.
-7. Manage appointments through the dashboard.
-
-**For Customers**
-
-1. Open the business's booking link.
-2. Select a service.
-3. Choose an available date.
-4. Select a time slot.
-5. Enter personal contact details.
-6. Confirm the appointment.
-7. Receive booking confirmation.
-
----
-
-## Project Structure
-
-```text
-SCHEDLY/
-│
-├── app.py
-├── database.db
-├── requirements.txt
-│
-├── templates/
-│   ├── index.html
-│   ├── login.html
-│   ├── setup.html
-│   ├── booking.html
-│   ├── confirmation.html
-│   ├── dashboard.html
-│   ├── management.html
-│   └── manage_booking.html
-│
-├── static/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   └── images/
-│
-└── README.md
-```
-
----
-
-## Installation and Setup
-
-### Prerequisites
-
-- Python 3.10 or above
-- Visual Studio Code
-- Git
-
-### Step 1: Clone the Repository
-
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
-
-### Step 2: Navigate to the Project
-
-```bash
-cd SCHEDLY
-```
-
-### Step 3: Create a Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### Step 4: Activate the Virtual Environment
-
-**Windows:**
-
-```bash
-venv\Scripts\activate
-```
-
-### Step 5: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Step 6: Run the Application
-
-```bash
-python app.py
-```
-
-### Step 7: Open in Browser
-
-```text
-http://127.0.0.1:5000
-```
-
----
-
-## Expected Demonstration
-
-The final demonstration showcases two browser windows:
-
-**Customer Window**
-- A customer opens a business booking link.
-- Selects a service and available time slot.
-- Confirms an appointment.
-
-**Business Owner Window**
-- The owner's dashboard updates with the appointment.
-- An attempt to book the same slot is rejected.
-- Cancelling an appointment makes the slot available again.
-
----
-
-## Future Enhancements
-
-- Online payment integration.
-- Email and SMS notifications.
-- Advanced booking analytics.
-- Customer booking history.
-- Business performance reports.
-- Enhanced calendar management.
-- Progressive Web App (PWA) support.
-
----
-
-## Project Objective
-
-To provide a simple, reliable and efficient appointment scheduling solution for local businesses while making service booking easier and faster for customers.
-
-**SCHEDLY — Your Business. Your Schedule. Your Bookings.**
-
----
-
-*Developed as a hackathon project for BYTE RACE 2026.*
