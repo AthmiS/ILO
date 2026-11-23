@@ -83,4 +83,4 @@ pytest -q
 Open the customer booking page in one browser window and the owner dashboard in another. Create a booking, verify it appears in the dashboard, then cancel it through the secure management link and confirm the time becomes available again.
 
 ---
-Built for BYTE RACE 2026.
+
