@@ -1,5 +1,4 @@
-# ILO
-### Interactive Local Organizer.
+# ILO (Interactive Local Organizer)
 
 **ILO** Emphasizes local businesses and customer discovery is a smart, multi-business appointment booking platform that simplifies how local businesses manage appointments and how customers book services.
 
