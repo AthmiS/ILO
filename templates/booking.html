@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Book with {{ biz.name }} — ILO{% endblock %}
+{% block content %}
+<section class="booking-shell">
+  <aside class="booking-business"><a class="back-link" href="{{ url_for('index') }}">← ILO home</a><div class="business-emblem">{{ biz.name[:1]|upper }}</div><span class="eyebrow">{{ biz.category }}</span><h1>{{ biz.name }}</h1><p>{{ biz.description or 'Choose a service and a time that works for you.' }}</p><div class="business-contact"><span>⌖ {{ biz.address or 'Local business' }}</span><span>☎ {{ biz.phone }}</span></div><div class="booking-assurance"><span>✓</span><span><b>Easy online booking</b><small>No account needed. Choose a time and confirm.</small></span></div></aside>
+  <div class="booking-main"><div class="booking-progress"><span class="active">01 <small>Service</small></span><i></i><span>02 <small>Time</small></span><i></i><span>03 <small>Details</small></span></div>
+  {% if not services %}<div class="empty-state"><span>◷</span><h2>Bookings opening soon</h2><p>This business hasn't added any active services yet. Please check back later.</p></div>{% else %}
+  <form id="booking-form" method="post" action="{{ url_for('create_booking',slug=biz.slug) }}">
+    <section class="booking-step"><div class="step-heading"><span class="eyebrow">STEP 01</span><h2>What would you like to book?</h2><p>Select one service to see available appointment times.</p></div><div class="service-select-list">{% for s in services %}<label class="service-option"><input type="radio" name="service_id" value="{{ s.id }}" data-duration="{{ s.duration }}" data-price="{{ '%.2f'|format(s.price) }}" required><span class="service-radio"></span><span class="service-info"><b>{{ s.name }}</b><small>{{ s.description or (s.duration|string + ' minutes') }}</small></span><span class="service-price">₹{{ '%.2f'|format(s.price) }}<small>{{ s.duration }} min</small></span></label>{% endfor %}</div></section>
+    <section class="booking-step"><div class="step-heading"><span class="eyebrow">STEP 02</span><h2>Pick a date and time</h2><p>Only available appointment times will appear.</p></div><label class="date-label">Appointment date<input type="date" name="appointment_date" id="appointment-date" required min="{{ today }}"></label><div id="slot-area" class="slot-area"><p class="slot-placeholder">Choose a service and date to view available times.</p></div><input type="hidden" name="start_time" id="start-time" required></section>
+    <section class="booking-step"><div class="step-heading"><span class="eyebrow">STEP 03</span><h2>Your details</h2><p>We'll use these details for your booking record.</p></div><div class="form-grid"><label>Full name *<input name="customer_name" required maxlength="100" placeholder="Your full name"></label><label>Phone number *<input name="customer_phone" required inputmode="tel" pattern="[0-9+()\\-\\s]{7,20}" placeholder="+91 98765 43210"></label><label class="full-span">Email address (optional)<input type="email" name="customer_email" placeholder="you@example.com"></label></div></section>
+    <div class="booking-summary" id="booking-summary"><span>YOUR APPOINTMENT</span><b id="summary-service">Select a service</b><small id="summary-detail">Your selected date and time will appear here.</small></div>
+    <button class="btn btn-full" type="submit" id="confirm-booking" disabled>Confirm appointment <span>↗</span></button>
+    <p class="privacy-note">By booking, you agree to contact this business about your appointment.</p>
+  </form>{% endif %}</div>
+</section>
+{% endblock %}
+{% block scripts %}<script>window.ILO_BOOKING_URL={{ url_for('api_slots',slug=biz.slug)|tojson }};</script><script src="{{ url_for('static',filename='js/booking.js') }}"></script>{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}ILO — Smart Scheduling for Local Businesses{% endblock %}
+{% block content %}
+<section class="hero section-shell">
+  <div class="hero-copy reveal">
+    <div class="eyebrow"><span class="pulse"></span> A smarter way to organize your business</div>
+    <h1>Your business,<br><span class="gradient-text">beautifully in sync.</span></h1>
+    <p class="hero-lead">One simple place to manage services, share your booking link, and turn available time into confirmed appointments.</p>
+    <div class="hero-actions"><a class="btn" href="{{ url_for('register') }}">Start organizing <span>↗</span></a><a class="btn btn-ghost" href="#how-it-works">See how it works <span>↓</span></a></div>
+    <div class="hero-proof"><div class="avatar-stack"><i>A</i><i>M</i><i>R</i></div><span>Made for the people behind local businesses.</span></div>
+  </div>
+  <div class="hero-art reveal">
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="floating-chip chip-top"><span class="chip-icon">✦</span><span><b>Booking confirmed</b><small>Your schedule is in sync</small></span></div>
+    <div class="calendar-card">
+      <div class="calendar-head"><div><small>YOUR WEEK</small><h3>Schedule overview</h3></div><span class="calendar-dots">•••</span></div>
+      <div class="calendar-days"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span></div>
+      <div class="calendar-grid">
+        <div class="cal-time">09:00</div><div class="cal-event event-orange">Haircut <small>09:00 – 09:30</small></div>
+        <div class="cal-time">10:00</div><div class="cal-event event-purple">Consultation <small>10:00 – 10:45</small></div>
+        <div class="cal-time">11:00</div><div class="cal-event event-green">New booking <small>11:00 – 11:30</small></div>
+        <div class="cal-time">12:00</div><div class="cal-free">Available time</div>
+      </div>
+      <div class="calendar-foot"><span class="live-dot"></span> Schedule updated in real time</div>
+    </div>
+    <div class="floating-chip chip-bottom"><span class="check-bubble">✓</span><span><b>One less thing to manage</b><small>Bookings, all in one place</small></span></div>
+  </div>
+</section>
+<section class="trust-strip"><span>BUILT FOR EVERYDAY BUSINESS</span><div><b>✦</b> SALONS <b>✦</b> CLINICS <b>✦</b> TUTORS <b>✦</b> CONSULTANTS <b>✦</b> STUDIOS</div></section>
+<section class="section-shell section-pad" id="features">
+  <div class="section-heading reveal"><span class="eyebrow">THE ILO ADVANTAGE</span><h2>Less back-and-forth.<br><span class="muted-text">More time for your work.</span></h2><p>Everything you need to keep your appointments organized and your customers in the loop.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card feature-large reveal"><div class="feature-icon orange-icon">◷</div><span class="feature-kicker">SMART SCHEDULING</span><h3>Every slot has a purpose.</h3><p>ILO calculates availability from your working hours, service duration, breaks and existing bookings — so customers only see valid times.</p><div class="mini-slot-list"><span>09:00 AM <b>Available</b></span><span>09:30 AM <b>Booked</b></span><span>10:00 AM <b>Available</b></span></div></article>
+    <article class="feature-card reveal"><div class="feature-icon purple-icon">↗</div><span class="feature-kicker">YOUR OWN BOOKING LINK</span><h3>Your business, one easy link.</h3><p>Share a dedicated booking page with customers. No app download or customer account required.</p><div class="link-pill">ilo.local/book/your-business <span>↗</span></div></article>
+    <article class="feature-card reveal"><div class="feature-icon green-icon">▦</div><span class="feature-kicker">OWNER DASHBOARD</span><h3>See the day at a glance.</h3><p>View appointments, update statuses and understand your schedule from one clean dashboard.</p><div class="mini-stat-row"><div><b>24</b><small>Bookings</small></div><div><b>08</b><small>Upcoming</small></div><div><b>92%</b><small>Attendance</small></div></div></article>
+    <article class="feature-card reveal"><div class="feature-icon blue-icon">⌁</div><span class="feature-kicker">NO DOUBLE BOOKINGS</span><h3>Reliable by design.</h3><p>Availability is checked again when a customer confirms. Competing requests cannot reserve the same time.</p><div class="secure-line"><span>✓</span> Booking checked and secured</div></article>
+  </div>
+</section>
+<section class="how-section" id="how-it-works"><div class="section-shell section-pad"><div class="section-heading light-heading reveal"><span class="eyebrow">SIMPLE FROM THE START</span><h2>Three steps to a<br><span class="orange-text">smoother schedule.</span></h2></div><div class="steps-grid"><article class="step-card reveal"><span class="step-number">01</span><div class="step-visual visual-one">▤</div><h3>Set up your business</h3><p>Add your details, services, prices and working hours. Your booking page is ready to share.</p></article><article class="step-card reveal"><span class="step-number">02</span><div class="step-visual visual-two">◷</div><h3>Customers choose a time</h3><p>They pick a service and see available appointment times that fit your schedule.</p></article><article class="step-card reveal"><span class="step-number">03</span><div class="step-visual visual-three">✓</div><h3>Stay in control</h3><p>Bookings appear in your dashboard. Cancelled slots become available again.</p></article></div></div></section>
+<section class="section-shell section-pad categories-section"><div class="section-heading reveal"><span class="eyebrow">MADE FOR LOCAL SERVICES</span><h2>One platform.<br><span class="muted-text">Many kinds of business.</span></h2></div><div class="category-grid"><div class="category-card"><span>✂</span><b>Salons & beauty</b><small>Haircuts, facials, spa</small></div><div class="category-card"><span>＋</span><b>Clinics</b><small>Consultations, follow-ups</small></div><div class="category-card"><span>▤</span><b>Tutors</b><small>Classes and sessions</small></div><div class="category-card"><span>✧</span><b>Consultants</b><small>Guidance and meetings</small></div><div class="category-card"><span>◉</span><b>Photography</b><small>Portraits and shoots</small></div><div class="category-card"><span>＋</span><b>More services</b><small>Your business, your way</small></div></div></section>
+<section class="section-shell cta-section"><div class="cta-card reveal"><div><span class="eyebrow">YOUR NEXT STEP STARTS HERE</span><h2>Give your schedule<br>room to breathe.</h2><p>Bring your appointments, services and customers into one organized place.</p><a class="btn btn-white" href="{{ url_for('register') }}">Create your business page <span>↗</span></a></div><div class="cta-decoration"><div class="cta-ring"></div><div class="cta-calendar">✓<small>You're all booked.</small></div></div></div></section>
+{% if featured %}<section class="section-shell section-pad"><div class="section-heading"><span class="eyebrow">ON ILO</span><h2>Explore local businesses</h2></div><div class="business-grid">{% for b in featured %}<a class="business-card" href="{{ url_for('booking',slug=b.slug) }}"><span class="business-avatar">{{ b.name[:1]|upper }}</span><span><b>{{ b.name }}</b><small>{{ b.category }} · {{ b.address or 'Local business' }}</small></span><span class="arrow">↗</span></a>{% endfor %}</div></section>{% endif %}
+{% endblock %}
