@@ -97,7 +97,7 @@ SCHEDLY aims to solve these problems through a centralized booking platform wher
 
 **For Business Owners**
 
-1. Register on SCHEDLY.
+1. Register on ILO.
 2. Create a business profile.
 3. Add services with prices and durations.
 4. Configure working hours and days off.
@@ -120,7 +120,7 @@ SCHEDLY aims to solve these problems through a centralized booking platform wher
 ## Project Structure
 
 ```text
-SCHEDLY/
+ILO/
 │
 ├── app.py
 ├── database.db
@@ -234,7 +234,7 @@ The final demonstration showcases two browser windows:
 
 To provide a simple, reliable and efficient appointment scheduling solution for local businesses while making service booking easier and faster for customers.
 
-**SCHEDLY — Your Business. Your Schedule. Your Bookings.**
+**ILO — Your Business. Your Schedule. Your Bookings.**
 
 ---
 
