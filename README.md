@@ -1,7 +1,7 @@
 # ILO
-### Smart Scheduling. Seamless Booking.
+### Interactive Local Organizer.
 
-**SCHEDLY** is a smart, multi-business appointment booking platform that simplifies how local businesses manage appointments and how customers book services.
+**ILO** Emphasizes local businesses and customer discovery is a smart, multi-business appointment booking platform that simplifies how local businesses manage appointments and how customers book services.
 
 It provides every registered business with its own public booking link, allowing customers to select services, choose available time slots and confirm appointments without repetitive phone calls or WhatsApp messages.
 
@@ -239,4 +239,6 @@ To provide a simple, reliable and efficient appointment scheduling solution for 
 
 ---
 
-*Developed as a hackathon project for BYTE RACE 2026.*
+ILO
+
+Connect. Discover. Book.
